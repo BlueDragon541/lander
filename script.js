@@ -35,8 +35,8 @@ const platform = {
   h: 5,
   x: 190,
   y: 345,
-  top: 295,
-  bottom: 350,
+  top: 350,
+  bottom: 345,
   left: 190,
   right: 210,
 }
@@ -139,16 +139,22 @@ function checkCollision() {
     ship.crashed= true;
     return;
   }
-}
-
-const gibberishBunch = 
-bottom < platform.top ||
-top > platform.bottom ||
-left > platform.right ||
-right < platform.left;
+  const gibberishBunch = 
+  bottom < platform.top ||
+  top > platform.bottom ||
+  left > platform.right ||
+  right < platform.left;
 if (!gibberishBunch) {
   ship.crashed = true;
   return;
+ }
+
+
+
+
+
+
+
 }
 
 function gameLoop() {
