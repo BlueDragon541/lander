@@ -2,6 +2,7 @@ const startBtn = document.getElementById("startBtn");
 const statusDiv = document.getElementById("status");
 const canvas = document.getElementById("game-area");
 const ctx = canvas.getContext("2d");
+const lzBuffer = 3;
 
 // Set the canvas size to 400x400
 canvas.width = 400;
@@ -149,7 +150,17 @@ if (!gibberishBunch) {
   return;
  }
 
-
+if (
+  ship.dx < 0.2 &&
+  ship.dy < 0.2 &&
+  left > platform.left &&
+  right < platform.right &&
+  bottom < platform.top &&
+  platform.top - bottom < lzBuffer
+) {
+  ship.landed = true;
+  return;
+}
 
 
 
