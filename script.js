@@ -29,6 +29,25 @@ const ship = {
   landed: false,
 };
 
+const platform = {
+  color: 'blue',
+  w: 25,
+  h: 5,
+  x: 190,
+  y: 345,
+  top: 295,
+  bottom: 350,
+  left: 190,
+  right: 210,
+}
+
+function drawPlatform() {
+  ctx.fillstyle = platform.color;
+  ctx.fillRect(platform.x, platform.y, platform.w, platform.h);
+}
+
+
+
 function initShip() {
   // position
   ship.x = 150 + Math.random() * 100;
@@ -118,8 +137,18 @@ function checkCollision() {
   // TODO: check that ship flew out of bounds. If so, set ship.crashed = true
   if(top < 0 || bottom > canvas.height || right > canvas.width || left < 0) {
     ship.crashed= true;
-  }
     return;
+  }
+}
+
+const gibberishBunch = 
+bottom < platform.top ||
+top > platform.bottom ||
+left > platform.right ||
+right < platform.left;
+if (!gibberishBunch) {
+  ship.crashed = true;
+  return;
 }
 
 function gameLoop() {
@@ -136,6 +165,7 @@ function gameLoop() {
     // Clear entire screen
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawShip();
+    drawPlatform();
     requestAnimationFrame(gameLoop);
   }
 }
