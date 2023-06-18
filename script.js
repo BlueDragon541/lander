@@ -36,10 +36,10 @@ const platform = {
   h: 5,
   x: 190,
   y: 345,
-  top: 350,
-  bottom: 345,
+  top: 345,
+  bottom: 340,
   left: 190,
-  right: 210,
+  right: 215,
 }
 
 function drawPlatform() {
