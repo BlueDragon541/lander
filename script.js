@@ -43,7 +43,7 @@ const platform = {
 }
 
 function drawPlatform() {
-  ctx.fillstyle = platform.color;
+  ctx.fillStyle = platform.color;
   ctx.fillRect(platform.x, platform.y, platform.w, platform.h);
 }
 
@@ -146,7 +146,7 @@ function updateShip() {
 function updatePrjs() {
   for (let i = 0; i < prjs.length; i++) {
     let prj= prjs[i];
-    
+
   }
 }
 function checkCollision() {
