@@ -13,7 +13,7 @@ const sideEngineThrust = 0.01;
 const mainEngineThrust = 0.03;
 
 const ship = {
-  color: "blue",
+  color: "black",
   // height, width
   w: 8,
   h: 22,
