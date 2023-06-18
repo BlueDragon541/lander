@@ -63,6 +63,14 @@ function initShip() {
   ship.landed = false;
 }
 
+function drawPrjs() {
+  for (let i = 0; i < prjs.length; i++) {
+    let prj= prjs[i];
+    ctx.fillStyle = prj.color;
+    ctx.fillRect(prj.x, prj.y, prj.w, prj.h);
+  }
+}
+
 function initPrjs() {
   for (let i = 0; i < 10; i++) {
     let prj = {
@@ -191,6 +199,7 @@ if (
 
 function gameLoop() {
   updateShip();
+  updatePrjs();
 
   checkCollision();
   if (ship.crashed) {
