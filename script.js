@@ -146,7 +146,9 @@ function updateShip() {
 function updatePrjs() {
   for (let i = 0; i < prjs.length; i++) {
     let prj= prjs[i];
-
+    prj.dy += gravity;
+    prj.y += prj.dy;
+    prj.x += prj.dx;
   }
 }
 function checkCollision() {
