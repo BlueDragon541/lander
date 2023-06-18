@@ -31,7 +31,7 @@ const ship = {
 };
 
 const platform = {
-  color: 'blue',
+  color: 'black',
   w: 25,
   h: 5,
   x: 190,
