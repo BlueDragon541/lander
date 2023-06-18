@@ -1,8 +1,9 @@
 const startBtn = document.getElementById("startBtn");
 const statusDiv = document.getElementById("status");
 const canvas = document.getElementById("game-area");
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d")
 const lzBuffer = 3;
+let prjs = [];
 
 // Set the canvas size to 400x400
 canvas.width = 400;
@@ -159,6 +160,7 @@ function updatePrjs() {
     prj.x += prj.dx;
   }
 }
+
 function checkCollision() {
   const top = ship.y - ship.h / 2;
   const bottom = ship.y + ship.h / 2;
