@@ -31,7 +31,7 @@ const ship = {
 };
 
 const platform = {
-  color: 'black',
+  color: 'blue',
   w: 25,
   h: 5,
   x: 190,
@@ -63,6 +63,20 @@ function initShip() {
   ship.landed = false;
 }
 
+function initPrjs() {
+  for (let i = 0; i < 10; i++) {
+    let prj = {
+      x: Math.floor(Math.random() * 400),
+      y: 0,
+      dx: 1- (Math.random() * 2),
+      dy: Math.random(),
+      h: 4,
+      w: 4,
+      color: 'red'
+    }
+    prjs.push(prj);
+  }
+}
 function drawTriangle(a, b, c, fillStyle) {
   ctx.beginPath();
   ctx.moveTo(a[0], a[1]);
@@ -129,7 +143,12 @@ function updateShip() {
   ship.x +=ship.dx;
 }
   
-  
+function updatePrjs() {
+  for (let i = 0; i < prjs.length; i++) {
+    let prj= prjs[i];
+    
+  }
+}
 function checkCollision() {
   const top = ship.y - ship.h / 2;
   const bottom = ship.y + ship.h / 2;
