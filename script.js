@@ -261,6 +261,7 @@ function start() {
   startBtn.disabled = true;
   statusDiv.innerHTML = "";
   initShip();
+  initPrjs();
 
   document.addEventListener("keyup", keyLetGo);
   document.addEventListener("keydown", keyPressed);
