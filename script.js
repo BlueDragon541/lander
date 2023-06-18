@@ -258,6 +258,7 @@ function keyPressed(event) {
 
 function start() {
   // console.log("start", ship);
+  prjs = [];
   startBtn.disabled = true;
   statusDiv.innerHTML = "";
   initShip();
