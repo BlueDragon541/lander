@@ -211,6 +211,7 @@ function gameLoop() {
   } else {
     // Clear entire screen
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawPrjs();
     drawShip();
     drawPlatform();
     requestAnimationFrame(gameLoop);
