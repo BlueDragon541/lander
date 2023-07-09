@@ -67,7 +67,7 @@ const platform = new Rect(190, 345, 20, 5);
 platform.color = "blue";
 
 terrain.push([0, 310]);
-terrain.push([100, 210]);
+terrain.push([100, 240]);
 terrain.push([platform.left, platform.bottom]);
 terrain.push([platform.right, platform.botttom]);
 terrain.push([300, 250]);
