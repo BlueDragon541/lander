@@ -71,7 +71,7 @@ terrain.push([100, 210]);
 terrain.push([platform.left, platform.bottom]);
 terrain.push([platform.right, platform.botttom]);
 terrain.push([300, 250]);
-terrain.push([350, 390]);
+terrain.push([350, 350]);
 terrain.push([400, 300]);
 
 function drawPlatform() {
@@ -83,7 +83,7 @@ function drawTerrain() {
   ctx.beginPath()
   ctx.moveTo(0,400);
   for (let i = 0; i < terrain.length; i++) {
-    ctx.lineTo(terrain[i][0], terrain[i][i]);
+    ctx.lineTo(terrain[i][0], terrain[i][1]);
   }
   ctx.lineTo(400,400);
   ctx.closePath();
