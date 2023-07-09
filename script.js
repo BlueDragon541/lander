@@ -69,7 +69,7 @@ platform.color = "blue";
 terrain.push([0, 310]);
 terrain.push([100, 240]);
 terrain.push([platform.left, platform.bottom]);
-terrain.push([platform.right, platform.botttom]);
+terrain.push([platform.right, platform.bottom]);
 terrain.push([300, 250]);
 terrain.push([350, 350]);
 terrain.push([400, 300]);
