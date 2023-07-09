@@ -221,7 +221,7 @@ function gameLoop() {
 
   checkCollision();
   if (ship.crashed) {
-    statusDiv.innerHTML = "GAME OVER - crashed";
+    statusDiv.innerHTML = "GAME OVER - you crashed";
     endGame();
   } else if (ship.landed) {
     statusDiv.innerHTML = "LANDED - you win!";
