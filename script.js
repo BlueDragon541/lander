@@ -11,6 +11,7 @@ const gravity = 0.01;
 const sideEngineThrust = 0.01;
 const mainEngineThrust = 0.03;
 const lzBuffer = 3;
+const initialFuel = 1000;
 
 class Rect {
   constructor(x, y, w, h) {
@@ -62,6 +63,9 @@ ship.leftEngine = false;
 ship.rightEngine = false;
 ship.crashed = false;
 ship.landed = false;
+ship.hasFuel = function () {
+  return this.fuel > 0;
+}
 
 const platform = new Rect(190, 345, 20, 5);
 platform.color = "blue";
@@ -108,6 +112,7 @@ function initShip() {
   ship.rightEngine = false;
   ship.crashed = false;
   ship.landed = false;
+  ship.fuel = initialFuel;
 }
 
 function drawPrjs() {
@@ -212,7 +217,6 @@ function checkCollision() {
     ship.crashed = true;
     return;
   }
-}
 
   // check that ship hit platform
   if (ship.overlaps(platform)) {
@@ -251,6 +255,7 @@ function checkCollision() {
       console.log('left corner crashed')
       ship.crashed = true;
       return;
+    }
   }
   
   // check if ship landed. If so, set ship.landed = true
