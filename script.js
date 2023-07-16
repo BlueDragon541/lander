@@ -11,7 +11,7 @@ const gravity = 0.01;
 const sideEngineThrust = 0.01;
 const mainEngineThrust = 0.03;
 const lzBuffer = 3;
-const initialFuel = 1000;
+const initialFuel = 700;
 
 class Rect {
   constructor(x, y, w, h) {
@@ -189,17 +189,22 @@ function updateShip() {
   // what other forces acting on the ship?
   if (ship.hasFuel() && ship.rightEngine) {
     ship.dx -= sideEngineThrust;
+    ship.fuel -= sideEngineThrust * 100;
   }
   if (ship.hasFuel() && ship.leftEngine) {
     ship.dx += sideEngineThrust;
+    ship.fuel -= sideEngineThrust * 100;
   }
   if (ship.hasFuel() && ship.mainEngine) {
     ship.dy -= mainEngineThrust;
+    ship.fuel -= mainEngineThrust * 100;
   }
 
   // after calculating velocity, update our position
   ship.x += ship.dx;
   ship.y += ship.dy;
+
+  console.log("fuel", ship.fuel)
 }
 
 function updatePrjs() {
@@ -287,7 +292,10 @@ function gameLoop() {
   } else {
     // Clear entire screen
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText(`fuel: ${Math.floor(ship.fuel)}`)
+    if (ship.fuel < 0) {
+      ship.fuel = 0;
+    }  
+    ctx.fillText(`fuel: ${Math.floor(ship.fuel)}`, 2, 10)
     drawPrjs();
     drawShip();
     drawPlatform();
