@@ -80,7 +80,7 @@ function drawPlatform() {
 }
 
 function drawTerrain() {
-  ctx.beginPath()
+  ctx.beginPath();
   ctx.moveTo(0,400);
   for (let i = 0; i < terrain.length; i++) {
     ctx.lineTo(terrain[i][0], terrain[i][1]);
