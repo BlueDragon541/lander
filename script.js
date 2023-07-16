@@ -155,7 +155,7 @@ function drawShip() {
   ctx.closePath();
 
   // Draw the flame if engine is on
-  if (ship.mainEngine) {
+  if (ship.hasFuel() && ship.mainEngine) {
     drawTriangle(
       [ship.w * -0.5, ship.h * 0.5],
       [ship.w * 0.5, ship.h * 0.5],
@@ -163,7 +163,7 @@ function drawShip() {
       "orange"
     );
   }
-  if (ship.rightEngine) {
+  if (ship.hasFuel() && ship.rightEngine) {
     drawTriangle(
       [ship.w * 0.5, ship.h * -0.25],
       [ship.w * 0.5 + Math.random() * 10, 0],
@@ -171,7 +171,7 @@ function drawShip() {
       "orange"
     );
   }
-  if (ship.leftEngine) {
+  if (ship.hasFuel () && ship.leftEngine) {
     drawTriangle(
       [ship.w * -0.5, ship.h * -0.25],
       [ship.w * -0.5 - Math.random() * 10, 0],
@@ -187,13 +187,13 @@ function updateShip() {
   ship.dy += gravity;
 
   // what other forces acting on the ship?
-  if (ship.rightEngine) {
+  if (ship.hasFuel() && ship.rightEngine) {
     ship.dx -= sideEngineThrust;
   }
-  if (ship.leftEngine) {
+  if (ship.hasFuel() && ship.leftEngine) {
     ship.dx += sideEngineThrust;
   }
-  if (ship.mainEngine) {
+  if (ship.hasFuel() && ship.mainEngine) {
     ship.dy -= mainEngineThrust;
   }
 
@@ -287,6 +287,7 @@ function gameLoop() {
   } else {
     // Clear entire screen
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillText(`fuel: ${Math.floor(ship.fuel)}`)
     drawPrjs();
     drawShip();
     drawPlatform();
